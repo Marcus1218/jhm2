@@ -4,13 +4,17 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures
+from datetime import datetime
 
 # Fetch stock data
 ticker = input('Enter ticker symbol: ')
 start_year = input ('Enter the start Year and month:(e.g 2020-01)')
 end_year = input ('Enter the end Year and month:(e.g 2025-01)')
+if start_year == '':
+    start_year = datetime.now().strftime('%Y-%m')
+if end_year == '':
+    end_year = datetime.now().strftime('%Y-%m')
 stock_data = yf.download(ticker, start=f'{start_year}-01', end=f'{end_year}-01')
-
 # Prepare the data
 stock_data = stock_data.dropna()
 X = np.arange(len(stock_data)).reshape(-1, 1)
