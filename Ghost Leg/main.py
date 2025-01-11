@@ -15,6 +15,7 @@ def print_board(board, players):
         print(f"| {row_with_walls} |")
 #Enter a number to update the board
 def update_board(board, players):
+    selected_numbers = set()
     while True:
         update = input("Enter a number to update the board (or 'n' to stop): ").strip()
         if update.lower() == 'n':
@@ -22,13 +23,18 @@ def update_board(board, players):
         elif update.isdigit():
             found = False
             for row in board:
-                if update in row:
+                if update in row and update not in selected_numbers:
                     index = row.index(update)
                     row[index] = "_"
                     found = True
+                    selected_numbers.add(update)
+                    if index > 0:
+                        selected_numbers.add(row[index - 1])
+                    if index < len(row) - 1:
+                        selected_numbers.add(row[index + 1])
                     break
             if not found:
-                print("Invalid input. Try again.")
+                print("Invalid input or number already selected. Try again.")
         else:
             print("Invalid input. Try again.")
 #caculate the result
