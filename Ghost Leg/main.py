@@ -6,7 +6,7 @@ def create_board(players, ladders):
         row = ["{0:02d}".format((i * players + j + 1)) for j in range(players)]
         board.append(row)
     return board
-#Print out the bored and player
+#Print out the bored and players
 def print_board(board, players):
     player_labels = " | ".join([f"P{i+1}" for i in range(players)])
     print(f"| {player_labels} |")
