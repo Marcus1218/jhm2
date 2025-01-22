@@ -1,6 +1,6 @@
 ## Hello There This is the JHM2 repositories 
 ## You can find me though through discord (marcus_1218)
-This is for my APL Lesson to submit work/homework You can have some reference here BUT DONT COPY!!!!
+This is for my APL Lesson to submit work You can have some reference here BUT DONT COPY!!!!
 
 if you want to take some reference remember to told me!
 
